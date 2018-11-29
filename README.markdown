@@ -28,30 +28,55 @@ quired submodules.
 This will fetch known "working" snapshot of CELT, Speex and
 Protocol Buffers for Objective C.
 
-How do I include this into my Xcode project? (iOS, Xcode 4)
+How do I include this into my Swift Xcode project? (iOS, Xcode 9.3)
 -----------------------------------------------------------
 
-The easiest way to include MumbleKit with your application on iOS
-is to drag the MumbleKit.xcodeproj project inside your application's project,
-or workspace.
+* In XCode, create a project in a workspace. Choose "Single-Page app", using Swift.
+Example folder: Documents/SampleProject
 
-Then, do the following:
+* Clone MumbleKit
+This can be in a directory separate from the project dir, e.g. Documents/MumbleKit.
 
- * Make MumbleKit (iOS) direct dependency of your application's main
-   executable target.
+* Open a terminal at the MumbleKit folder and retrieve submodules:
+	- git submodule init
+	- git submodule update
 
- * Drag libMumbleKit.a into the 'Link Binary With Libraries' section of your
-   application target's build phases.
+* In XCode, create a folder (group) called "Dependencies" inside your own project in the Project Navigator.
 
- * Add MumbleKit's src directory as a header search path for your application's
-   main executable target.
+* Open the MumbleKit folder in finder. Drag the MumbleKit.xcodeproj file into the Dependencies group in XCode.
 
- * Add MumbleKit's dependencies as linked libraries to the executable target:
-     - AudioToolbox.framework
-     - CFNetwork.framework
-     - Security.framework
+* Build the MumbleKit project: Choose the scheme "MumbleKit (iOS)" in the XCode top bare and build. If you get a lot of project settings recommendations, go through them and fix them one by one.
 
- * The build should now work.
+* In the MumbleKit group, right-click and select "Add files to MumbleKit.xcodeproj". Find the MumbleKit/src/MumbleKit.pch file. Select to add it to the MumbleKit (iOS) target.
+
+* In the MumbleKit project settings, select Build Settings, item "Prefix Header": Add the path to the MumbleKit.pch file: `src/MumbleKit.pch`
+
+* Select your project in the Project Navigator to open the project settings page. In this, select the Build Phases tab. In "Target Dependencies", press the + button and select the "MumbleKit (iOS)" item.
+
+* In the Build Settings, find the "Other linker flags" and add '-lc++'.
+
+* In the Build Settings, find the "Header Search Paths" and add an entry: "$(SRCROOT)/../MumbleKitForked/src". SRCROOT is the root folder for your own project, and this example has MumbleKit in a folder called MumbleKitForked next to my own project folder.
+
+* Add a Bridging Header to your project: New File->Header file. Call the file BridgingHeader.h. Clear the contents of the file.
+
+* Configure the project to use the Bridging header: In Build Settings, find the "Objective-C Bridging Header" entry and specify the chosen file: "$(SRCROOT)/SampleProject/BridgingHeader.h" (exchange SampleProject for your own project name)
+
+* Open the Bridging Header file and add: 
+
+```
+#import <Foundation/Foundation.h>
+#import <MumbleKit/MKConnection.h>
+```
+
+Add an import statement for each MumbleKit class that you reference from Swift Code. It might be all of them.
+
+* In your project, in Build Phases, add Link Binary With Libraries:
+Security.framework
+CFNetwork.framework
+AudioToolbox.framework
+libMumbleKit.a
+
+* The build should now work.
 
 How do I include this into my Xcode project? (Mac OS X, Xcode 4)
 ----------------------------------------------------------------

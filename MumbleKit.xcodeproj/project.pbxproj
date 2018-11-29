@@ -134,6 +134,7 @@
 		28CE05CB1687A454006E2739 /* MKVoiceProcessingDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 284C1ABB161CABCC00B87340 /* MKVoiceProcessingDevice.m */; };
 		28F2FAD513E37BA000034BF2 /* MKAudioOutputUserPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 28F2FAD413E37BA000034BF2 /* MKAudioOutputUserPrivate.h */; };
 		28F2FAD613E37BA000034BF2 /* MKAudioOutputUserPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 28F2FAD413E37BA000034BF2 /* MKAudioOutputUserPrivate.h */; };
+		AAEE9D6821B00046006507B5 /* MumbleKit.pch in Headers */ = {isa = PBXBuildFile; fileRef = AAEE9D6721B00046006507B5 /* MumbleKit.pch */; };
 		BCD11DF2158F3FD600321E06 /* MKPermission.h in Headers */ = {isa = PBXBuildFile; fileRef = BCD11DF1158F3FD600321E06 /* MKPermission.h */; };
 		BCD11DF3158F3FD600321E06 /* MKPermission.h in Headers */ = {isa = PBXBuildFile; fileRef = BCD11DF1158F3FD600321E06 /* MKPermission.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BCD11DF7158F40A900321E06 /* MKAccessControl.h in Headers */ = {isa = PBXBuildFile; fileRef = BCD11DF4158F40A900321E06 /* MKAccessControl.h */; };
@@ -424,6 +425,7 @@
 		28CC3711132EDC7300241269 /* libSpeex.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSpeex.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		28CC3712132EDC7300241269 /* libSpeexDSP.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSpeexDSP.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		28F2FAD413E37BA000034BF2 /* MKAudioOutputUserPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKAudioOutputUserPrivate.h; path = src/MKAudioOutputUserPrivate.h; sourceTree = SOURCE_ROOT; };
+		AAEE9D6721B00046006507B5 /* MumbleKit.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MumbleKit.pch; path = src/MumbleKit.pch; sourceTree = SOURCE_ROOT; };
 		BCD11DF1158F3FD600321E06 /* MKPermission.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKPermission.h; path = src/MumbleKit/MKPermission.h; sourceTree = SOURCE_ROOT; };
 		BCD11DF4158F40A900321E06 /* MKAccessControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKAccessControl.h; path = src/MumbleKit/MKAccessControl.h; sourceTree = SOURCE_ROOT; };
 		BCD11DF5158F40A900321E06 /* MKChannelACL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKChannelACL.h; path = src/MumbleKit/MKChannelACL.h; sourceTree = SOURCE_ROOT; };
@@ -683,6 +685,7 @@
 		28BCF2C6132AE3B40003AEC1 /* MumbleKit */ = {
 			isa = PBXGroup;
 			children = (
+				AAEE9D6721B00046006507B5 /* MumbleKit.pch */,
 				2845A7BA132D9C310034D631 /* Private Headers */,
 				2845A780132D9BF50034D631 /* Public Headers */,
 				2845A77F132D9BF10034D631 /* Sources */,
@@ -746,6 +749,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAEE9D6821B00046006507B5 /* MumbleKit.pch in Headers */,
 				2845A7BE132D9C400034D631 /* MKUserPrivate.h in Headers */,
 				2845A7C0132D9C400034D631 /* MulticastDelegate.h in Headers */,
 				2845A7C5132D9C460034D631 /* CryptState.h in Headers */,
@@ -837,7 +841,7 @@
 		28BCF2B8132AE3B40003AEC1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0930;
 			};
 			buildConfigurationList = 28BCF2BB132AE3B40003AEC1 /* Build configuration list for PBXProject "MumbleKit" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1120,6 +1124,7 @@
 		2845A729132D9B2F0034D631 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				SDKROOT = macosx;
 			};
@@ -1128,6 +1133,7 @@
 		2845A72A132D9B2F0034D631 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				SDKROOT = macosx;
 			};
@@ -1137,18 +1143,30 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2815C4E0150D559800136082 /* BetaDist.xcconfig */;
 			buildSettings = {
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				GCC_PREFIX_HEADER = "";
 			};
 			name = BetaDist;
 		};
 		28498F1B138AB6A9000509DD /* BetaDist */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_PREFIX_HEADER = src/MumbleKit.pch;
+				OTHER_LDFLAGS = "-lc++";
 			};
 			name = BetaDist;
 		};
 		28498F1C138AB6A9000509DD /* BetaDist */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				SDKROOT = macosx;
 			};
@@ -1158,18 +1176,30 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2815C4DE150D559800136082 /* AppStore.xcconfig */;
 			buildSettings = {
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				GCC_PREFIX_HEADER = "";
 			};
 			name = AppStore;
 		};
 		28A2AEC31478A92700F3B83F /* AppStore */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_PREFIX_HEADER = src/MumbleKit.pch;
+				OTHER_LDFLAGS = "-lc++";
 			};
 			name = AppStore;
 		};
 		28A2AEC41478A92700F3B83F /* AppStore */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				SDKROOT = macosx;
 			};
@@ -1179,6 +1209,15 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2815C4E6150D55BC00136082 /* Debug.xcconfig */;
 			buildSettings = {
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				GCC_PREFIX_HEADER = "";
 				ONLY_ACTIVE_ARCH = YES;
 			};
 			name = Debug;
@@ -1187,18 +1226,31 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2815C4E1150D559800136082 /* Release.xcconfig */;
 			buildSettings = {
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				GCC_PREFIX_HEADER = "";
 			};
 			name = Release;
 		};
 		28BCF2CC132AE3B40003AEC1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_PREFIX_HEADER = src/MumbleKit.pch;
+				OTHER_LDFLAGS = "-lc++";
 			};
 			name = Debug;
 		};
 		28BCF2CD132AE3B40003AEC1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_PREFIX_HEADER = src/MumbleKit.pch;
+				OTHER_LDFLAGS = "-lc++";
 			};
 			name = Release;
 		};
