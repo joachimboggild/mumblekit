@@ -841,7 +841,7 @@
 		28BCF2B8132AE3B40003AEC1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1010;
 			};
 			buildConfigurationList = 28BCF2BB132AE3B40003AEC1 /* Build configuration list for PBXProject "MumbleKit" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1158,6 +1158,7 @@
 		28498F1B138AB6A9000509DD /* BetaDist */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				GCC_PREFIX_HEADER = src/MumbleKit.pch;
 				OTHER_LDFLAGS = "-lc++";
 			};
@@ -1191,6 +1192,7 @@
 		28A2AEC31478A92700F3B83F /* AppStore */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				GCC_PREFIX_HEADER = src/MumbleKit.pch;
 				OTHER_LDFLAGS = "-lc++";
 			};
@@ -1241,6 +1243,7 @@
 		28BCF2CC132AE3B40003AEC1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				GCC_PREFIX_HEADER = src/MumbleKit.pch;
 				OTHER_LDFLAGS = "-lc++";
 			};
@@ -1249,6 +1252,7 @@
 		28BCF2CD132AE3B40003AEC1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				GCC_PREFIX_HEADER = src/MumbleKit.pch;
 				OTHER_LDFLAGS = "-lc++";
 			};

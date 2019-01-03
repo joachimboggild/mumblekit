@@ -172,7 +172,7 @@ extern NSString *MKCertificateItemSerialNumber;
 /// Returns a digest of the given kind of the raw DER-data backing
 /// the certificate and the public key of the receiving MKCertificate object.
 ///
-/// @param  A digest kind (currently supports @"sha1" and @"sha256".
+/// @param digestKind A digest kind (currently supports @"sha1" and @"sha256".
 ///
 /// @returns An NSData object that holds the calculated digest.
 - (NSData *) digestOfKind:(NSString *)digestKind;

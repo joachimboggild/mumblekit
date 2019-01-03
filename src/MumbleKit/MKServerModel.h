@@ -527,7 +527,7 @@
 
 /// Set access control for a channel.
 ///
-/// @param acl       The access control you want to set.
+/// @param accessControl The access control you want to set.
 /// @param channel   The channel for which you are setting the access control.
 - (void) setAccessControl:(MKAccessControl *)accessControl forChannel:(MKChannel *)channel;
 
